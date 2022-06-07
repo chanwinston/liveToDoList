@@ -67,8 +67,11 @@ body {
 
 .task {
   background: #f4f4f4;
-  margin: 5px;
   padding: 10px 20px;
+  display: inline-block;
+  margin-top: 2px;
+  margin-bottom: 3px;
+  margin-left: 5px;
 }
 
 .task.reminder {
@@ -145,5 +148,9 @@ body {
 
 .tasksdiv {
   background-color: #303134;
-  border-radius: 10px;
+  border-radius: 5px;
+}
+
+.editButton {
+  padding-right: 0px;
 }

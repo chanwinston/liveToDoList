@@ -87,6 +87,7 @@ function Task(props) {
         click
       </button>
       <FaEdit
+        className='editButton'
         onClick={editTask}
         size='17px'
         style={{ color: "black", cursor: "pointer", marginLeft: "406px" }}
