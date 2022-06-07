@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
 import AddTask from "./components/AddTask";
+import SubmitButton from "./components/SubmitButton";
 
 const App = () => {
   const [showAddTask, setShowAddTask] = useState(true);
@@ -71,6 +72,7 @@ const App = () => {
 
   return (
     <div className='container'>
+      <SubmitButton />
       <Header
         onAdd={() => setShowAddTask(!showAddTask)}
         showAdd={showAddTask}
