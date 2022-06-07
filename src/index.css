@@ -14,13 +14,12 @@ body {
 }
 
 .title {
-  text-align: left;
+  text-align: center;
   grid-area: header;
   font-size: calc(7vw + 2rem);
   font-weight: 900;
   color: rgba(0, 0, 0, 0.1);
   letter-spacing: 2px;
-  margin: -0.3em -0.2em 0em;
 }
 
 .container {

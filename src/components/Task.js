@@ -47,6 +47,32 @@ function Task(props) {
       });
   }
 
+  async function editTask() {
+    await firestore
+      .collection("tasks")
+      .get()
+      .then((snapshot) => {
+        snapshot.docs.forEach((docs) => {
+          if (docs.data().uid === uid) {
+            let newText = prompt("task");
+            if (newText === "") {
+              newText = docs.data().text;
+            }
+            let newDay = prompt("date and time");
+            if (newDay === "") {
+              newDay = docs.data().day;
+            }
+            setDoc(doc(firestore, "tasks", docs.id), {
+              text: newText,
+              day: newDay,
+              reminder: docs.data().reminder,
+              uid: docs.data().uid,
+            });
+          }
+        });
+      });
+  }
+
   return (
     <div className={`task ${reminder ? "reminder" : ""}`}>
       <h3>
@@ -61,6 +87,7 @@ function Task(props) {
         click
       </button>
       <FaEdit
+        onClick={editTask}
         size='17px'
         style={{ color: "black", cursor: "pointer", marginLeft: "406px" }}
       />

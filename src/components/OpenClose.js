@@ -13,9 +13,9 @@ const OpenClose = ({ title, onAdd, showAdd }) => {
     </header>
   );
 };
-
+let date = new Date().toLocaleDateString();
 OpenClose.defaultProps = {
-  title: "to do list",
+  title: date,
 };
 
 OpenClose.propTypes = {
