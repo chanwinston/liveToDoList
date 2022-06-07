@@ -30,6 +30,7 @@ body {
   min-height: 250px;
   padding: 30px;
   background-color: #e4e4e4;
+  border-radius: 10px;
 }
 
 .header {
@@ -68,10 +69,14 @@ body {
 .task {
   background: #f4f4f4;
   padding: 10px 20px;
-  display: inline-block;
-  margin-top: 2px;
-  margin-bottom: 3px;
-  margin-left: 5px;
+  display: block;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+  border-style: solid;
 }
 
 .task.reminder {
@@ -146,11 +151,10 @@ body {
   height: 20px;
 }
 
-.tasksdiv {
-  background-color: #303134;
-  border-radius: 5px;
+.editButton {
+  float: right;
 }
 
-.editButton {
-  padding-right: 0px;
+.clickEdit {
+  display: block;
 }
