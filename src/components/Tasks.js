@@ -20,10 +20,10 @@ function Tasks() {
 
   return (
     <>
-      <div>
+      <div className='tasksdiv'>
         <main>{messages && messages.map((msg) => <Task message={msg} />)}</main>
       </div>
-      <div className='bg-zinc-800 h-32 rounded-b-3xl max-w-xl m-auto'></div>
+      <div></div>
     </>
   );
 }
