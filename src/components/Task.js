@@ -13,7 +13,10 @@ const Task = ({ task, onDelete, onToggle }) => {
       <button className='btn-done' onClick={() => onToggle(task.id)}>
         click
       </button>
-      {/* <FaEdit size='17px'style={{color:'black', cursor:'pointer', marginLeft:'406px'}} /> */}
+      <FaEdit
+        size='17px'
+        style={{ color: "black", cursor: "pointer", marginLeft: "406px" }}
+      />
     </div>
   );
 };
