@@ -1,6 +1,8 @@
 import { useState } from "react";
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
+import { doc, setDoc } from "firebase/firestore";
+
 firebase.initializeApp({
   apiKey: "AIzaSyDk3qXciPGrWLtlURBPrrSWhocjFmhs_tk",
   authDomain: "livetodolist-66f7e.firebaseapp.com",
@@ -10,7 +12,6 @@ firebase.initializeApp({
   appId: "1:10787261151:web:6e59ed708a88d49f15776a",
 });
 const firestore = firebase.firestore();
-const taskRef = firestore.collection("tasks");
 
 const AddTask = ({ onAdd }) => {
   const [text, setText] = useState("");
@@ -18,15 +19,19 @@ const AddTask = ({ onAdd }) => {
   const [reminder, setReminder] = useState(false);
 
   async function action() {
+    if (!text) {
+      alert("Fields are empty!");
+      return;
+    }
     let numberTasks = 1;
     await firestore
       .collection("tasks")
       .get()
       .then((snapshot) => {
-        snapshot.docs.forEach((doc) => {
+        snapshot.docs.forEach(() => {
           numberTasks++;
         });
-        taskRef.add({
+        setDoc(doc(firestore, "tasks", String(numberTasks)), {
           text: text,
           day: day,
           reminder: reminder,
@@ -37,10 +42,6 @@ const AddTask = ({ onAdd }) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    if (!text) {
-      alert("Fields are empty!");
-      return;
-    }
     setText("");
     setDay("");
     setReminder(false);
