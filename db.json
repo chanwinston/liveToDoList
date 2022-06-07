@@ -3,19 +3,19 @@
     {
       "text": "Wake Up",
       "day": "8AM",
-      "reminder": true,
+      "reminder": false,
       "id": 1
     },
     {
       "text": "Gym",
       "day": "10AM",
-      "reminder": true,
+      "reminder": false,
       "id": 2
     },
     {
       "text": "Sleep",
       "day": "12AM",
-      "reminder": true,
+      "reminder": false,
       "id": 3
     }
   ]

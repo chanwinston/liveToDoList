@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Header from "./components/Header";
+import OpenClose from "./components/OpenClose";
 import Tasks from "./components/Tasks";
 import AddTask from "./components/AddTask";
 
@@ -71,7 +71,7 @@ const App = () => {
 
   return (
     <div className='container'>
-      <Header
+      <OpenClose
         onAdd={() => setShowAddTask(!showAddTask)}
         showAdd={showAddTask}
       />

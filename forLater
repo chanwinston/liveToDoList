@@ -1,0 +1,33 @@
+// async function deleteTask() {
+//   let dataID = [];
+//   await firestore
+//     .collection("tasks")
+//     .get()
+//     .then((snapshot) => {
+//       snapshot.docs.forEach((doc) => {
+//         if (doc.data().id === task.id) {
+//           dataID.push(doc.id);
+//         }
+//       });
+//     });
+//   let lastMessage = dataID[dataID.length - 1];
+//   return firestore.collection("tasks").doc(lastMessage).delete();
+// }
+
+// async function markedDone() {
+//   await firestore
+//     .collection("tasks")
+//     .get()
+//     .then((snapshot) => {
+//       snapshot.docs.forEach((docs) => {
+//         if (docs.data().id === task.id) {
+//           setDoc(doc(firestore, "tasks", String(task.id)), {
+//             text: task.text,
+//             day: task.day,
+//             reminder: !task.reminder,
+//             id: task.id,
+//           });
+//         }
+//       });
+//     });
+// }

@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import Button from "./Button";
 
-const Header = ({ title, onAdd, showAdd }) => {
+const OpenClose = ({ title, onAdd, showAdd }) => {
   return (
     <header class='header'>
       <h2>{title}</h2>
@@ -14,12 +14,12 @@ const Header = ({ title, onAdd, showAdd }) => {
   );
 };
 
-Header.defaultProps = {
+OpenClose.defaultProps = {
   title: "to do list",
 };
 
-Header.propTypes = {
+OpenClose.propTypes = {
   title: PropTypes.string.isRequired,
 };
 
-export default Header;
+export default OpenClose;

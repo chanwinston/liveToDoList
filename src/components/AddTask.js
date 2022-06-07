@@ -1,7 +1,6 @@
 import { useState } from "react";
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
-import { doc, setDoc } from "firebase/firestore";
 
 firebase.initializeApp({
   apiKey: "AIzaSyDk3qXciPGrWLtlURBPrrSWhocjFmhs_tk",
@@ -12,8 +11,9 @@ firebase.initializeApp({
   appId: "1:10787261151:web:6e59ed708a88d49f15776a",
 });
 const firestore = firebase.firestore();
+const taskRef = firestore.collection("tasks");
 
-const AddTask = ({ onAdd }) => {
+const AddTask = () => {
   const [text, setText] = useState("");
   const [day, setDay] = useState("");
   const [reminder, setReminder] = useState(false);
@@ -31,7 +31,7 @@ const AddTask = ({ onAdd }) => {
         snapshot.docs.forEach(() => {
           numberTasks++;
         });
-        setDoc(doc(firestore, "tasks", String(numberTasks)), {
+        taskRef.add({
           text: text,
           day: day,
           reminder: reminder,
@@ -49,7 +49,6 @@ const AddTask = ({ onAdd }) => {
   return (
     <form className='add-form' onSubmit={onSubmit}>
       <div className='form-control'>
-        <label></label>
         <input
           type='text'
           placeholder='task'
@@ -58,7 +57,6 @@ const AddTask = ({ onAdd }) => {
         />
       </div>
       <div className='form-control'>
-        <label></label>
         <input
           type='text'
           placeholder='date and time'
