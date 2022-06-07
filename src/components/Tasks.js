@@ -15,7 +15,7 @@ const firestore = firebase.firestore();
 
 function Tasks() {
   const messagesRef = firestore.collection("tasks");
-  const query = messagesRef.orderBy("id").limit(25);
+  const query = messagesRef.orderBy("uid").limit(25);
   const [messages] = useCollectionData(query, { idField: "id" });
 
   return (

@@ -35,7 +35,7 @@ const AddTask = () => {
           text: text,
           day: day,
           reminder: reminder,
-          id: numberTasks,
+          uid: numberTasks,
         });
       });
   }

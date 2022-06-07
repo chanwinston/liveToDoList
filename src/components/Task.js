@@ -14,22 +14,19 @@ firebase.initializeApp({
 const firestore = firebase.firestore();
 
 function Task(props) {
-  const { text, day, reminder, id } = props.message;
+  const { text, day, reminder, uid } = props.message;
 
   async function deleteTask() {
-    let dataID = [];
     await firestore
       .collection("tasks")
       .get()
       .then((snapshot) => {
         snapshot.docs.forEach((doc) => {
-          if (doc.data().id === id) {
-            dataID.push(doc.id);
+          if (doc.data().uid === uid) {
+            firestore.collection("tasks").doc(doc.id).delete();
           }
         });
       });
-    let lastMessage = dataID[dataID.length - 1];
-    return firestore.collection("tasks").doc(lastMessage).delete();
   }
 
   async function markedDone() {
@@ -38,12 +35,12 @@ function Task(props) {
       .get()
       .then((snapshot) => {
         snapshot.docs.forEach((docs) => {
-          if (docs.data().id === id) {
-            setDoc(doc(firestore, "tasks", "sd"), {
+          if (docs.data().uid === uid) {
+            setDoc(doc(firestore, "tasks", docs.id), {
               text: docs.data().text,
               day: docs.data().day,
               reminder: !docs.data().reminder,
-              id: docs.data().id,
+              uid: docs.data().uid,
             });
           }
         });
