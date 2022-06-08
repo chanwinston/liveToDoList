@@ -84,15 +84,15 @@ function Task(props) {
       </h3>
       <p> {day}</p>
       <div className='clickEdit'>
-        <button onClick={markedDone} className='btn-done'>
-          click
-        </button>
         <FaEdit
           className='editButton'
           onClick={editTask}
           size='17px'
           style={{ color: "black", cursor: "pointer", marginLeft: "300px" }}
         />
+        <button onClick={markedDone} className='btn-done'>
+          click
+        </button>
       </div>
     </div>
   );
