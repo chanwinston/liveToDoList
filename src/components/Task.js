@@ -54,11 +54,11 @@ function Task(props) {
       .then((snapshot) => {
         snapshot.docs.forEach((docs) => {
           if (docs.data().uid === uid) {
-            let newText = prompt("task");
+            let newText = prompt("task", docs.data().text);
             if (newText === "") {
               newText = docs.data().text;
             }
-            let newDay = prompt("date and time");
+            let newDay = prompt("description", docs.data().day);
             if (newDay === "") {
               newDay = docs.data().day;
             }
@@ -91,7 +91,7 @@ function Task(props) {
           style={{ color: "black", cursor: "pointer", marginLeft: "300px" }}
         />
         <button onClick={markedDone} className='btn-done'>
-          click
+          check
         </button>
       </div>
     </div>
