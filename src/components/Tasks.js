@@ -23,7 +23,6 @@ function Tasks() {
       <div className='tasksdiv'>
         <main>{messages && messages.map((msg) => <Task message={msg} />)}</main>
       </div>
-      <div></div>
     </>
   );
 }
