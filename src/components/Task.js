@@ -3,13 +3,15 @@ import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
 import { doc, setDoc } from "firebase/firestore";
 
+require("dotenv").config();
+
 firebase.initializeApp({
-  apiKey: "AIzaSyDk3qXciPGrWLtlURBPrrSWhocjFmhs_tk",
-  authDomain: "livetodolist-66f7e.firebaseapp.com",
-  projectId: "livetodolist-66f7e",
-  storageBucket: "livetodolist-66f7e.appspot.com",
-  messagingSenderId: "10787261151",
-  appId: "1:10787261151:web:6e59ed708a88d49f15776a",
+  apiKey: process.env.API_KEY,
+  authDomain: process.env.AUTH_DOMAIN,
+  projectId: process.env.PROJECT_ID,
+  storageBucket: process.env.STORAGE_BUCKET,
+  messagingSenderId: process.env.MESSAGING_SENDER_ID,
+  appId: process.env.APP_ID,
 });
 const firestore = firebase.firestore();
 
