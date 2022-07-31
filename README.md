@@ -8,4 +8,4 @@ A to-do list that was created with JavaSript React and Firebase.
 * Edit tasks.
 
 ### What I Learned
-*How to use React | React states | React componenets*
+*How to use React | React states | React components*
